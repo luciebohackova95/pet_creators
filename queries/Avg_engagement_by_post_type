@@ -1,0 +1,12 @@
+--Average engagement rate by post type (including number of posts)
+SELECT 
+post_type,
+COUNT(*) AS num_posts,
+ROUND(AVG(engagement_rate)*100,2) AS avg_engagement_rate,
+ FROM `practice-475920.pet_creators.pet_creators_data`
+ WHERE
+ is_viral = "normal"
+GROUP BY 
+post_type
+ORDER BY
+avg_engagement_rate DESC
