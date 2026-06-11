@@ -1,0 +1,15 @@
+--Original sound vs Trending audio
+--This query counts effect of the audio type on engagement rate and shareability rate. Viral content excluded.
+SELECT
+audio,
+ROUND(AVG(engagement_rate)*100,2) AS avg_engagement,
+ROUND(AVG(shareability_rate)*100,2) AS avg_shareability,
+COUNT(*) post_count
+FROM
+practice-475920.pet_creators.pet_creators_data
+WHERE
+is_viral = "normal"
+GROUP BY
+audio
+ORDER BY
+avg_engagement DESC
