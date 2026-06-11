@@ -7,7 +7,6 @@ ELSE "no human"
 END 
 human_presence,
 ROUND(AVG(engagement_rate)*100,2) AS avg_engagement,
-ROUND(AVG(shareability_rate)*100,0) AS avg_shareability,
 FROM
 practice-475920.pet_creators.pet_creators_data
 WHERE
