@@ -1,0 +1,15 @@
+--Sponsored content performance by feel
+--Analyze the impact of product placement and sponsorship feel on engagement. Viral content excluded.
+SELECT
+CASE WHEN product_featured = true THEN "yes"
+ELSE "no"
+END AS product_featured,
+sponsored_feel,
+ROUND(AVG(engagement_rate)*100,2) AS avg_engagement
+FROM
+practice-475920.pet_creators.pet_creators_data
+WHERE
+is_viral = "normal"
+GROUP BY
+product_featured,
+sponsored_feel
