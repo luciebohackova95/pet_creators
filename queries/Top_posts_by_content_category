@@ -1,5 +1,5 @@
 -- Top performing posts by content category
---this query groups posts by content category, calculates average engagement rate and average number of shares in %, and number of posts in each category. Then it ranks the categories from the highest to the lowest engagement rate.  
+--this query groups posts by content category, calculates average engagement rate and average number of shares in %, and number of posts in each category. Viral posts excluded. Then it ranks the categories from the highest to the lowest engagement rate.  
 SELECT 
 content_category,
 ROUND(AVG(engagement_rate)*100,2) AS avg_engagement,
@@ -7,6 +7,8 @@ ROUND(AVG(shareability_rate)*100,0) AS avg_shareability,
 COUNT(*) AS post_count
 FROM
 practice-475920.pet_creators.pet_creators_data
+WHERE
+is_viral = "normal"
 GROUP BY
 content_category
 ORDER BY
