@@ -1,0 +1,18 @@
+--Engagement by account size 
+--Compare average engagement by creator size and post type (excluding viral posts)
+SELECT
+creator_size,
+post_type,
+ROUND(AVG(engagement_rate)*100,2) AS avg_engagement,
+COUNT(*)
+post_count
+FROM
+practice-475920.pet_creators.pet_creators_data
+WHERE
+is_viral = "normal"
+GROUP BY
+creator_size,
+post_type
+ORDER BY
+creator_size,
+avg_engagement DESC
