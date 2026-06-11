@@ -1,0 +1,16 @@
+-- Does human presence effect engagement?
+-- This query counts average engagement rate and average shareability for groups where human is included and where is it not. Used CASE to change "true" to "has human" and "false" to "no human". Viral content excluded.
+SELECT
+CASE
+WHEN human_presence = true THEN "has human"
+ELSE "no human"
+END 
+human_presence,
+ROUND(AVG(engagement_rate)*100,2) AS avg_engagement,
+ROUND(AVG(shareability_rate)*100,2) AS avg_shareability,
+FROM
+practice-475920.pet_creators.pet_creators_data
+WHERE
+is_viral = "normal"
+GROUP BY
+human_presence
