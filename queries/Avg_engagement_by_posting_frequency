@@ -8,9 +8,12 @@ WHEN days_since_last_post <= 7 THEN "Weekly"
 ELSE "Infrequent" 
 END AS posting_cadence,
 ROUND(AVG(engagement_rate)*100,2) AS avg_engagement,
+COUNT(*) post_count
 FROM
 practice-475920.pet_creators.pet_creators_data
 WHERE
 is_viral = "normal"
 GROUP BY
 posting_cadence
+ORDER BY
+avg_engagement DESC
