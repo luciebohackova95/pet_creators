@@ -3,7 +3,7 @@
 SELECT
 audio,
 ROUND(AVG(engagement_rate)*100,2) AS avg_engagement,
-ROUND(AVG(shareability_rate)*100,2) AS avg_shareability,
+ROUND(AVG(shareability_rate)*100,0) AS avg_shareability,
 COUNT(*) post_count
 FROM
 practice-475920.pet_creators.pet_creators_data
