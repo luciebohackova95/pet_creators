@@ -1,0 +1,13 @@
+--Best performing day
+--Analyze the relationship between posting day and engagement performance
+SELECT
+day_of_week,
+ROUND(AVG(engagement_rate)*100,2) AS avg_engagement
+FROM
+practice-475920.pet_creators.pet_creators_data
+WHERE
+is_viral = "normal"
+GROUP BY
+day_of_week
+ORDER BY 
+avg_engagement DESC
