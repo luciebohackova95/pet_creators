@@ -1,5 +1,5 @@
 --Average engagement rate by post type
---this query analyzes content performance by post type. It calculates average engagement, average shareability and number of posts for each type. Then it ranks the post types by engagement rate from the highest to lowest.
+--this query analyzes content performance by post type. It calculates average engagement, average shareability and number of posts for each type. Viral posts excluded. Then it ranks the post types by engagement rate from the highest to lowest.
 SELECT 
 post_type,
 COUNT(*) AS num_posts,
