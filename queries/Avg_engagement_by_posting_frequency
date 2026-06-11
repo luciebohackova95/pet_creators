@@ -1,0 +1,16 @@
+--Posting cadence vs engagement
+--Analyze average engagement by posting frequency. Viral content excluded,
+SELECT
+CASE
+WHEN days_since_last_post <= 1 THEN "Daily"
+WHEN days_since_last_post <= 3 THEN "Every 2-3 days"
+WHEN days_since_last_post <= 7 THEN "Weekly"
+ELSE "Infrequent" 
+END AS posting_cadence,
+ROUND(AVG(engagement_rate)*100,2) AS avg_engagement,
+FROM
+practice-475920.pet_creators.pet_creators_data
+WHERE
+is_viral = "normal"
+GROUP BY
+posting_cadence
